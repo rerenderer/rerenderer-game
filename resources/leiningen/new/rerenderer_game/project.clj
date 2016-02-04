@@ -3,17 +3,13 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.48"]
-                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.7.228"]
                  [org.clojure/core.match "0.3.0-alpha4"]
-                 [rerenderer "0.1.0"]
-                 [figwheel-sidecar "0.4.1"]
-                 [com.cemerick/piggieback "0.2.1"]
-                 [org.clojure/tools.nrepl "0.2.10"]]
-  :plugins [[lein-cljsbuild "1.1.0"]
-            [lein-figwheel "0.4.1"]
-            #_ [lein-rerenderer "0.1.0-SNAPSHOT"]]
+                 [org.clojure/core.async "0.2.371"]
+                 [rerenderer "0.2.0"]]
+  :plugins [[lein-cljsbuild "1.1.2"]
+            [lein-figwheel "0.5.0-6"]]
   :source-paths ["src"]
   :cljsbuild {:builds {:main {:source-paths ["src"]
                               :figwheel {:websocket-host "localhost"}

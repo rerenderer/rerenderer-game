@@ -39,6 +39,5 @@
 (init!
   :root-view root-view
   :event-handler event-handler
-  :events [:click]
   :state inital-state
   :canvas (.getElementById js/document "canvas"))
