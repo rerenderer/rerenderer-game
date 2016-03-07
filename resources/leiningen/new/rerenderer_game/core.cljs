@@ -3,28 +3,25 @@
   (:require [cljs.core.match :refer-macros [match]]
             [cljs.core.async :refer [<!]]
             [rerenderer.core :refer [init!]]
-            [rerenderer.primitives :as primitives]))
+            [rerenderer.primitives :as primitives]
+            [rerenderer.debug :as debug]))
 
 (enable-console-print!)
-
-(def colors {:red [255 255 0 0]
-             :green [255 0 255 0]
-             :blue [255 0 0 255]})
 
 (defn root-view
   [state]
   (primitives/rectangle {:width 200
                          :height 200
-                         :color (-> state :color colors)
+                         :color (:color state)
                          :x 100
                          :y 100}))
 
 (defn change-color
   [color]
   (condp = color
-    :red :green
-    :green :blue
-    :blue :red))
+    "red" "green"
+    "green" "blue"
+    "blue" "red"))
 
 (defn event-handler
   [event-ch state-atom _]
@@ -34,10 +31,10 @@
       event (println "Unhandled event:" event))
     (recur)))
 
-(def inital-state {:color :red})
+(def inital-state {:color "red"})
 
-(init!
-  :root-view root-view
-  :event-handler event-handler
-  :state inital-state
-  :canvas (.getElementById js/document "canvas"))
+(defonce game (init! :root-view root-view
+                     :event-handler event-handler
+                     :state inital-state))
+
+(defn on-reload [] (debug/rerender! game))

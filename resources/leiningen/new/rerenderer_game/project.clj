@@ -7,12 +7,13 @@
                  [org.clojure/clojurescript "1.7.228"]
                  [org.clojure/core.match "0.3.0-alpha4"]
                  [org.clojure/core.async "0.2.371"]
-                 [rerenderer "0.2.0"]]
+                 [rerenderer "0.3.0"]]
   :plugins [[lein-cljsbuild "1.1.2"]
             [lein-figwheel "0.5.0-6"]]
   :source-paths ["src"]
   :cljsbuild {:builds {:main {:source-paths ["src"]
-                              :figwheel {:websocket-host "localhost"}
+                              :figwheel {:websocket-host "localhost"
+                                         :on-jsload "{{name}}.core/on-reload"}
                               :compiler {:output-to "resources/public/compiled/main.js"
                                          :output-dir "resources/public/compiled"
                                          :asset-path "/compiled"
