@@ -1,5 +1,6 @@
 (ns leiningen.new.rerenderer-game
-  (:require [leiningen.new.templates :refer [renderer name-to-path ->files
+  (:require [clojure.string :refer [includes?]]
+            [leiningen.new.templates :refer [renderer name-to-path ->files
                                              raw-resourcer sanitize]]
             [leiningen.core.main :as main]))
 
@@ -8,6 +9,9 @@
 
 (defn rerenderer-game
   [name]
+  (when-not (includes? name ".")
+    (main/abort "Name should include at least one `.`!"))
+
   (let [data {:name name
               :path (name-to-path name)
               :sanitized (sanitize name)}]
