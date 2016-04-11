@@ -7,13 +7,41 @@ Template for [rerenderer](https://github.com/rerenderer/rerenderer) based games.
 For starting new project:
 
 ```bash
-lein new rerenderer-game my-super-game
+lein new rerenderer-game com.my.super-game
 ```
 
 For running project:
 
 ```bash
 lein figwheel
+```
+
+For using figwheel on android please change `getUrl` in your `MainActivity`, like:
+
+```java
+public class MainActivity extends RerendererActivity {
+    @Override
+    public String getUrl() {
+        return "file:///android_asset/index.html";
+    }
+}
+```
+
+For building android version for figwheel use:
+
+```bash
+cd android
+chmod +x gradlew
+./gradlew installDebug
+```
+
+If you want to build standalone version for android, change `getUrl` to 
+`"file:///android_asset/index.html"` and:
+
+```bash
+lein cljsbuild once
+cd android 
+./gradlew copyAssets installDebug
 ```
 
 ## License
