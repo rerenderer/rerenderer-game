@@ -16,13 +16,15 @@ For running project:
 lein figwheel
 ```
 
-For using figwheel on android please change `getUrl` in your `MainActivity`, like:
+For using figwheel on android please change `url` in your `MainActivity`, like:
 
-```java
-public class MainActivity extends RerendererActivity {
-    @Override
-    public String getUrl() {
-        return "http://192.168.2.100:3449";
+```kotlin
+class MainActivity: RerendererActivity() {
+    override val url = "http://192.168.2.100:3449"
+
+    override fun registerPrimitives() {
+        super.registerPrimitives()
+        // Register your primitives here
     }
 }
 ```

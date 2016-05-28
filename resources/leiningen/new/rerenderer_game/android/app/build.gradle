@@ -1,4 +1,22 @@
+buildscript {
+    ext {
+        rerenderer_version = "0.4.1"
+        kotlin_version = "1.0.0"
+    }
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 23
@@ -17,16 +35,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 repositories {
     maven {
-        url  "http://dl.bintray.com/rerenderer/rerenderer"
+        url "http://dl.bintray.com/rerenderer/rerenderer"
     }
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
-    compile 'org.rerenderer:android:0.3.6'
+    compile "org.rerenderer:android:$rerenderer_version"
 }

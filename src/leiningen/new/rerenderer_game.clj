@@ -32,4 +32,4 @@
              ["android/app/build.gradle" (render "android/app/build.gradle" data)]
              ["android/app/proguard-rules.pro" (copy "android/app/proguard-rules.pro")]
              ["android/app/src/main/AndroidManifest.xml" (render "android/app/AndroidManifest.xml" data)]
-             ["android/app/src/main/java/{{path}}/MainActivity.java" (render "android/app/MainActivity.java" data)])))
+             ["android/app/src/main/kotlin/{{path}}/MainActivity.kt" (render "android/app/MainActivity.kt" data)])))
