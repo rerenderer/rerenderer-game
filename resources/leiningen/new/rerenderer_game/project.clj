@@ -7,7 +7,7 @@
                  [org.clojure/clojurescript "1.7.228"]
                  [org.clojure/core.match "0.3.0-alpha4"]
                  [org.clojure/core.async "0.2.371"]
-                 [org.rerenderer/rerenderer "0.4.0"]]
+                 [org.rerenderer/rerenderer "0.4.1"]]
   :plugins [[lein-cljsbuild "1.1.2"]
             [lein-figwheel "0.5.0-6"]]
   :source-paths ["src"]

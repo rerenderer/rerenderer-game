@@ -1,4 +1,4 @@
-(defproject rerenderer-game/lein-template "0.4.0"
+(defproject rerenderer-game/lein-template "0.4.1"
   :description "Leiningen project template for rerenderer based games"
   :url "https://github.com/rerenderer/rerenderer-game"
   :license {:name "Eclipse Public License"
